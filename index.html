@@ -269,6 +269,37 @@
     .project-stat{ border-left:none; border-top:1px solid var(--line); padding-left:0; padding-top:20px; flex-direction:row; align-items:baseline; gap:14px; }
   }
 
+  .project-stat-group{
+    display:flex; flex-direction:column; gap:22px; justify-content:center;
+    border-left:1px solid var(--line); padding-left:36px;
+  }
+  .project-stat-group .project-stat{ border:none; padding:0; }
+  .project-stat-group .stat-num{ font-size:32px; }
+  @media (max-width: 900px){
+    .project-stat-group{ border-left:none; border-top:1px solid var(--line); padding-left:0; padding-top:20px; flex-direction:row; flex-wrap:wrap; gap:24px; }
+  }
+
+  .project-charts{
+    display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin-top:22px; max-width:480px;
+  }
+  .project-charts.single{ grid-template-columns: 1fr; max-width:100%; }
+  .project-charts img{
+    width:100%; border-radius:2px; border:1px solid var(--line); background:#fff;
+  }
+  .project-link{
+    display:inline-block; margin-top:22px; font-family:var(--mono); font-size:13px;
+    color:var(--teal); border-bottom:1px solid rgba(34,176,150,0.3); padding-bottom:2px; transition: border-color .25s;
+  }
+  .project-link:hover{ border-color:var(--teal); }
+
+  .resource-card{
+    background: var(--ink-2); border:1px solid var(--line); padding:40px;
+    display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;
+  }
+  .resource-card-main h3{ font-family:var(--serif); font-size:24px; font-weight:500; margin:14px 0 12px; }
+  .resource-card-main p{ color:var(--slate); font-size:14.5px; line-height:1.7; max-width:600px; }
+  .resource-card .btn{ white-space:nowrap; }
+
   /* ---------- EXPERIENCE / TIMELINE ---------- */
   .timeline{ position:relative; padding-left:32px; border-left:1px solid var(--line); }
   .tl-item{ position:relative; padding-bottom:56px; }
@@ -361,7 +392,7 @@
     <div class="about-grid">
       <div class="about-photo-wrap reveal">
         <div class="about-photo">
-          <div class="photo-placeholder">Add your photo here<br>— replace this block with &lt;img src="your-photo.jpg"&gt;</div>
+          <img src="assets/niteesh-photo.jpg" alt="Niteesh Kumar Pandey" onerror="this.parentElement.innerHTML='<div class=&quot;photo-placeholder&quot;>Add assets/niteesh-photo.jpg to your repo</div>'">
         </div>
         <div class="photo-tag">Currently: MBA, Business Analytics &amp; Data Science</div>
       </div>
@@ -488,25 +519,36 @@
     <div class="project">
       <span class="project-num">01</span>
       <div class="project-main">
-        <h3>Customer Churn Analysis</h3>
-        <p>Built an end-to-end churn pipeline over 10,000+ customer records, combining Python and SQL to isolate high-risk user segments before they left.</p>
-        <div class="project-tags"><span>Python</span><span>SQL</span><span>Segmentation</span></div>
+        <h3>Customer Churn &amp; Revenue Retention Analysis</h3>
+        <p>Integrated 3 datasets (customer, subscription, support) using SQL and Python to build a business-ready analytical dataset, then analyzed churn against key KPIs — plan type, escalations, and CLV — to surface concrete retention opportunities.</p>
+        <div class="project-tags"><span>Python</span><span>SQL (PostgreSQL)</span><span>EDA</span><span>Business Report</span></div>
+        <div class="project-charts">
+          <img src="assets/churn-plan-type.png" alt="Distribution of customers by plan type">
+          <img src="assets/churn-contract-type.png" alt="Distribution of customers by contract type">
+        </div>
+        <a class="project-link" href="https://github.com/Niteesh-Pandey/Customer-Churn-Analysis-Retention-Strategy" target="_blank" rel="noopener">View Repository →</a>
       </div>
-      <div class="project-stat">
-        <span class="stat-num">28%</span>
-        <span class="stat-lbl">Churn rate identified</span>
+      <div class="project-stat-group">
+        <div class="project-stat"><span class="stat-num">18.4%</span><span class="stat-lbl">Churn rate</span></div>
+        <div class="project-stat"><span class="stat-num">₹8.7M</span><span class="stat-lbl">Est. CLV loss</span></div>
+        <div class="project-stat"><span class="stat-num">24%</span><span class="stat-lbl">High churn-risk segment</span></div>
       </div>
     </div>
     <div class="project">
       <span class="project-num">02</span>
       <div class="project-main">
-        <h3>Ola Data Analytics Dashboard</h3>
-        <p>Processed 100k+ booking records across 19 columns and built a Power BI dashboard tracking cancellation rates and ride volumes to optimize urban mobility operations.</p>
-        <div class="project-tags"><span>SQL</span><span>Power BI</span><span>Excel</span></div>
+        <h3>OLA Ride Booking Analytics — Bengaluru</h3>
+        <p>Structured and queried one month of ride-booking data (103K bookings, 7 vehicle categories) in SQL — 10 views covering cancellations, ratings, and revenue — then built a 5-page Power BI dashboard for operations, revenue, and cancellation analysis.</p>
+        <div class="project-tags"><span>SQL</span><span>Power BI</span><span>Data Modeling</span></div>
+        <div class="project-charts single">
+          <img src="assets/ola-dashboard.png" alt="OLA Power BI dashboard — overall performance">
+        </div>
+        <a class="project-link" href="https://github.com/Niteesh-Pandey/-OLA-Ride-Booking-Analytics-SQL-Power-BI-Project" target="_blank" rel="noopener">View Repository →</a>
       </div>
-      <div class="project-stat">
-        <span class="stat-num">100k+</span>
-        <span class="stat-lbl">Bookings processed</span>
+      <div class="project-stat-group">
+        <div class="project-stat"><span class="stat-num">103K</span><span class="stat-lbl">Bookings analyzed</span></div>
+        <div class="project-stat"><span class="stat-num">62.1%</span><span class="stat-lbl">Success rate</span></div>
+        <div class="project-stat"><span class="stat-num">₹35M</span><span class="stat-lbl">Total booking value</span></div>
       </div>
     </div>
     <div class="project">
@@ -523,7 +565,26 @@
     </div>
   </div>
   <div style="text-align:center; margin-top:48px;" class="reveal">
-    <a href="https://github.com/niteeshpandey9555-crypto" target="_blank" rel="noopener" class="btn btn-ghost">See Full Portfolio on GitHub →</a>
+    <a href="https://github.com/Niteesh-Pandey" target="_blank" rel="noopener" class="btn btn-ghost">See Full Portfolio on GitHub →</a>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-index">03.5 — Reference</span>
+      <h2 class="sec-title">A working <em>formula sheet</em>, not just results.</h2>
+      <p class="sec-desc">A compiled reference of the metrics behind product &amp; growth analytics — funnel, cohort, and churn — with formulas, worked examples, SQL, and Python implementations.</p>
+    </div>
+    <div class="resource-card reveal">
+      <div class="resource-card-main">
+        <span class="sk-icon">// PDF REFERENCE</span>
+        <h3>Funnel · Cohort · Churn — Formulas &amp; Code</h3>
+        <p>Covers conversion &amp; drop-off formulas, cohort retention grids, churn/CAC/CLV math, plus ready-to-use SQL queries and Python (Pandas, scikit-learn) implementations — including a churn prediction model.</p>
+      </div>
+      <a class="btn btn-primary" href="assets/Funnel_Cohort_Churn_Analysis.pdf" target="_blank" rel="noopener">Open PDF →</a>
+    </div>
   </div>
 </section>
 
