@@ -300,6 +300,44 @@
   .resource-card-main p{ color:var(--slate); font-size:14.5px; line-height:1.7; max-width:600px; }
   .resource-card .btn{ white-space:nowrap; }
 
+  .project-flagship{
+    background: linear-gradient(135deg, rgba(34,176,150,0.06), var(--ink) 55%);
+    position:relative;
+  }
+  .project-flagship::before{
+    content:''; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background: linear-gradient(180deg, var(--teal), var(--amber));
+  }
+  .project-flagship:hover{ background: linear-gradient(135deg, rgba(34,176,150,0.1), var(--ink-2) 55%); }
+  .flagship-tag{
+    display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:11px;
+    color:var(--amber); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px;
+  }
+  .flagship-tag::before{ content:'★'; font-size:11px; }
+  .project-flagship .project-charts{ max-width:640px; }
+  .project-flagship .project-charts.single{ max-width:100%; }
+  .project-flagship .project-charts img{ background:#0d1420; }
+
+  .ecomiq-subhead{
+    display:block; font-family:var(--mono); font-size:12px; color:var(--amber);
+    letter-spacing:0.08em; text-transform:uppercase; margin:28px 0 16px;
+  }
+  .capability-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:1px; background:var(--line);
+    border:1px solid var(--line); max-width:640px;
+  }
+  .capability{ background:var(--ink-2); padding:16px 18px; display:flex; flex-direction:column; gap:6px; }
+  .cap-label{ font-family:var(--mono); font-size:12px; color:var(--teal); font-weight:600; letter-spacing:0.02em; }
+  .cap-items{ font-size:13px; color:var(--slate); line-height:1.6; }
+  @media (max-width: 640px){ .capability-grid{ grid-template-columns:1fr; } }
+
+  .rec-list{ list-style:none; display:flex; flex-direction:column; gap:12px; max-width:640px; }
+  .rec-list li{
+    font-size:14.5px; color:#B8BFC9; line-height:1.65; padding-left:22px; position:relative;
+  }
+  .rec-list li::before{ content:'✓'; position:absolute; left:0; color:var(--teal); font-weight:600; }
+  .rec-list li strong{ color:var(--paper); font-weight:600; }
+
   /* ---------- EXPERIENCE / TIMELINE ---------- */
   .timeline{ position:relative; padding-left:32px; border-left:1px solid var(--line); }
   .tl-item{ position:relative; padding-bottom:56px; }
@@ -516,8 +554,71 @@
     </div>
   </div>
   <div class="projects-list reveal">
-    <div class="project">
+    <div class="project project-flagship project-ecomiq">
       <span class="project-num">01</span>
+      <div class="project-main">
+        <span class="flagship-tag">Flagship Build</span>
+        <h3>EcomIQ — AI-Powered E-Commerce Decision Intelligence Platform</h3>
+        <p>Designed and built a full decision-intelligence pipeline on 9 raw source tables: SQL + Python analytics feed a verified-context layer, which grounds a Gemini-powered reasoning engine that answers business questions with evidence, root cause, and a recommended next action — not just a chart.</p>
+        <div class="project-tags"><span>PostgreSQL</span><span>Python</span><span>ML</span><span>A/B Testing</span><span>Power BI</span><span>Gemini API</span></div>
+        <div class="project-charts single">
+          <img src="ecomiq-architecture.jpg" alt="EcomIQ end-to-end architecture — data sources through AI intelligence layer to business decisions">
+        </div>
+
+        <div class="ecomiq-capabilities">
+          <span class="ecomiq-subhead">What the analytics engine actually covers</span>
+          <div class="capability-grid">
+            <div class="capability"><span class="cap-label">Product &amp; Growth</span><span class="cap-items">Funnel analysis · Cohort retention · Churn prediction · Feature adoption</span></div>
+            <div class="capability"><span class="cap-label">Unit Economics</span><span class="cap-items">CAC · CLV · CLV:CAC ratio · ARPU · Revenue churn</span></div>
+            <div class="capability"><span class="cap-label">Engagement Metrics</span><span class="cap-items">DAU / MAU · Activation rate · Conversion rate · Retention rate</span></div>
+            <div class="capability"><span class="cap-label">Segmentation</span><span class="cap-items">RFM (Recency, Frequency, Monetary) · Champions / At-Risk / Hibernating cohorts</span></div>
+            <div class="capability"><span class="cap-label">Predictive &amp; Causal</span><span class="cap-items">Random Forest churn prediction (ROC-AUC) · Revenue forecasting · A/B testing with significance testing</span></div>
+            <div class="capability"><span class="cap-label">Monitoring</span><span class="cap-items">Rolling z-score anomaly detection on revenue, orders &amp; refunds</span></div>
+          </div>
+        </div>
+
+        <div class="ecomiq-recs">
+          <span class="ecomiq-subhead">Business recommendations the AI layer surfaced</span>
+          <ul class="rec-list">
+            <li><strong>Ship the checkout redesign</strong> — A/B test cleared both bars: statistically significant (p = 0.0024) and business-significant (+2.28pp uplift, 95% CI entirely positive).</li>
+            <li><strong>Prioritize 407 high-value, high-churn-risk customers</strong> for retention outreach before their 90-day churn window closes.</li>
+            <li><strong>Treat the 90-day revenue forecast as a floor, not a target</strong> — growth is accelerating past what the linear model predicts (backtest MAPE ~49%).</li>
+            <li><strong>Protect Champions + Loyal Customers</strong> — 43% of customers, 67% of revenue. Retention spend here outperforms broad acquisition spend.</li>
+            <li><strong>Route flagged anomaly dates</strong> to ops/finance/product teams as an investigation list, not an automatic root cause.</li>
+          </ul>
+        </div>
+
+        <a class="project-link" href="https://github.com/Niteesh-Pandey/EcomIQ-AI-Powered-E-commerce-Decision-Intelligence-Platform" target="_blank" rel="noopener">View Repository →</a>
+      </div>
+      <div class="project-stat-group">
+        <div class="project-stat"><span class="stat-num">0.70</span><span class="stat-lbl">Churn model ROC-AUC</span></div>
+        <div class="project-stat"><span class="stat-num">+2.28pp</span><span class="stat-lbl">A/B checkout uplift, p=0.0024</span></div>
+        <div class="project-stat"><span class="stat-num">67%</span><span class="stat-lbl">Revenue from top 2 RFM segments</span></div>
+      </div>
+    </div>
+    <div class="project project-flagship">
+      <span class="project-num">02</span>
+      <div class="project-main">
+        <span class="flagship-tag">Flagship Build</span>
+        <h3>SaaS Growth Intelligence — From Activation to Profitability</h3>
+        <p>Full-funnel diagnosis of a SaaS product: mapped the onboarding funnel to find the real bottleneck, ran a statistically validated A/B test on the fix, then re-scored every acquisition channel by LTV:CAC instead of signup volume — turning "which channel gets the most users" into "which channel is actually profitable."</p>
+        <div class="project-tags"><span>SQL</span><span>Python</span><span>Statistical Testing</span><span>Cohort Analysis</span><span>Unit Economics</span></div>
+        <div class="project-charts">
+          <img src="saas-funnel.png" alt="User conversion funnel from signup to paid">
+          <img src="saas-cohort.png" alt="User retention cohort analysis heatmap">
+          <img src="saas-metrics.png" alt="ARPU, churn rate, paying customers, and A/B test activation results">
+          <img src="saas-subscription.png" alt="Subscription distribution by plan">
+        </div>
+        <a class="project-link" href="https://github.com/Niteesh-Pandey/SaaS-Growth-Intelligence---From-Activation-to-Profitability" target="_blank" rel="noopener">View Repository →</a>
+      </div>
+      <div class="project-stat-group">
+        <div class="project-stat"><span class="stat-num">34.2%</span><span class="stat-lbl">Signup → activation rate</span></div>
+        <div class="project-stat"><span class="stat-num">+52.7%</span><span class="stat-lbl">A/B lift, p &lt; 0.0001</span></div>
+        <div class="project-stat"><span class="stat-num">3.72</span><span class="stat-lbl">Best-channel LTV:CAC (Email)</span></div>
+      </div>
+    </div>
+    <div class="project">
+      <span class="project-num">03</span>
       <div class="project-main">
         <h3>Customer Churn &amp; Revenue Retention Analysis</h3>
         <p>Integrated 3 datasets (customer, subscription, support) using SQL and Python to build a business-ready analytical dataset, then analyzed churn against key KPIs — plan type, escalations, and CLV — to surface concrete retention opportunities.</p>
@@ -535,7 +636,7 @@
       </div>
     </div>
     <div class="project">
-      <span class="project-num">02</span>
+      <span class="project-num">04</span>
       <div class="project-main">
         <h3>OLA Ride Booking Analytics — Bengaluru</h3>
         <p>Structured and queried one month of ride-booking data (103K bookings, 7 vehicle categories) in SQL — 10 views covering cancellations, ratings, and revenue — then built a 5-page Power BI dashboard for operations, revenue, and cancellation analysis.</p>
@@ -552,7 +653,7 @@
       </div>
     </div>
     <div class="project">
-      <span class="project-num">03</span>
+      <span class="project-num">05</span>
       <div class="project-main">
         <h3>Blinkit Sales &amp; Operations Analysis</h3>
         <p>Designed an interactive Excel dashboard over 8,500+ rows of grocery data, with custom KPI cards and slicers for real-time sales and outlet performance tracking.</p>
@@ -666,7 +767,7 @@
       <a class="contact-link" href="mailto:Niteeshpandey9555@gmail.com"><span class="lbl">Email</span> Niteeshpandey9555@gmail.com</a>
       <a class="contact-link" href="tel:+919555218594"><span class="lbl">Phone</span> +91 95552 18594</a>
       <a class="contact-link" href="https://linkedin.com/in/niteeshpandey9555" target="_blank" rel="noopener"><span class="lbl">LinkedIn</span> /niteeshpandey9555</a>
-      <a class="contact-link" href="https://github.com/niteeshpandey9555-crypto" target="_blank" rel="noopener"><span class="lbl">GitHub</span> /niteeshpandey9555-crypto</a>
+      <a class="contact-link" href="https://github.com/Niteesh-Pandey" target="_blank" rel="noopener"><span class="lbl">GitHub</span> /Niteesh-Pandey</a>
     </div>
   </div>
 </section>
@@ -680,13 +781,13 @@
   // Build ticker content from real achievements, duplicated for seamless loop
   const stats = [
     {n:'40%', l:'Manual reporting time eliminated'},
-    {n:'28%', l:'Churn rate identified — 10k+ records'},
+    {n:'+52.7%', l:'A/B test activation lift, p < 0.0001'},
     {n:'5,000+', l:'SKUs standardized into live dashboards'},
     {n:'35%', l:'Data prep effort cut via GenAI workflows'},
-    {n:'15–20%', l:'Dead stock reduction via forecasting'},
+    {n:'AI-Grounded', l:'EcomIQ — decision intelligence platform'},
     {n:'100k+', l:'Ride bookings analyzed'},
     {n:'PL-300', l:'Microsoft Certified Power BI Data Analyst'},
-    {n:'30%', l:'Reporting effort reduced via automation'},
+    {n:'3.72', l:'Best-channel LTV:CAC identified'},
   ];
   const track = document.getElementById('tickerTrack');
   function buildTick(s){
