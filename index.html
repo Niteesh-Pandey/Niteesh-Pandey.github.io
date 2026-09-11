@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Niteesh Kumar Pandey — Business & Strategic Analyst</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16233A;
+    --ink-2:#1C2C46;
+    --ink-3:#22344F;
+    --paper:#EFE9DA;
+    --paper-dim:#E1D6BC;
+    --green:#B9862E;
+    --green-dim:#8F661F;
+    --amber:#2E8177;
+    --red:#A8442F;
+    --line: rgba(239,233,218,0.10);
+    --line-strong: rgba(239,233,218,0.22);
+    --line-dark: rgba(22,35,58,0.14);
+    --text-dim: #AAB2C6;
+    --text-dim2: #6E7891;
+    --text-dark: #1F2E46;
+    --text-dark-2: #45526B;
+    --text-dark-3: #6B7690;
+    --on-dark: #D0CBB8;
+    --figure-bg: #0C1524;
+    --serif: 'Fraunces', serif;
+    --sans: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--ink);
+    color: var(--paper);
+    font-family: var(--sans);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{ background: var(--green); color: var(--ink); }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ul{ list-style:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important; }
+  }
+
+  :focus-visible{ outline:2px solid var(--green); outline-offset:3px; }
+
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 32px; }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 32px;
+    background: linear-gradient(to bottom, rgba(18,20,26,0.94), rgba(18,20,26,0));
+    backdrop-filter: blur(6px);
+  }
+  .nav-mark{
+    font-family: var(--mono); font-size:13px; letter-spacing:0.02em; color:var(--paper);
+    display:flex; align-items:center; gap:9px;
+  }
+  .nav-mark .dot{ width:7px; height:7px; border-radius:50%; background:var(--green); }
+  .nav-links{ display:flex; gap:30px; font-family:var(--mono); font-size:12.5px; }
+  .nav-links a{ color:var(--text-dim); transition:color .2s; }
+  .nav-links a:hover{ color:var(--paper); }
+  @media (max-width:760px){ .nav-links{ display:none; } }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+    padding:150px 32px 90px; border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .hero-inner{ max-width:1120px; margin:0 auto; width:100%; }
+  .doc-tag{
+    font-family:var(--mono); font-size:11.5px; letter-spacing:0.14em; color:var(--text-dim2);
+    text-transform:uppercase; margin-bottom:26px; opacity:0; animation:fadeUp .7s ease forwards .05s;
+  }
+  .doc-tag strong{ color:var(--green); font-weight:500; }
+  .hero-title{
+    font-family:var(--serif); font-weight:500; font-size:clamp(38px,5.6vw,64px);
+    line-height:1.12; letter-spacing:-0.01em; max-width:820px;
+    opacity:0; animation:fadeUp .8s ease forwards .18s;
+  }
+  .hero-sub{
+    margin-top:22px; font-size:17px; line-height:1.7; color:var(--text-dim); max-width:560px;
+    opacity:0; animation:fadeUp .8s ease forwards .3s;
+  }
+  @keyframes fadeUp{ from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);} }
+
+  /* Decision Card */
+  .decision-card{
+    margin-top:52px; max-width:620px; background:var(--paper); color:var(--ink);
+    border-radius:3px; overflow:hidden; box-shadow:0 24px 60px rgba(0,0,0,0.35);
+    opacity:0; animation:fadeUp .9s ease forwards .45s;
+  }
+  .dc-head{
+    display:flex; align-items:center; justify-content:space-between; padding:18px 26px;
+    border-bottom:1px solid var(--line-dark); background:var(--paper-dim);
+  }
+  .dc-subject{ font-family:var(--mono); font-size:11.5px; color:var(--text-dark-2); letter-spacing:0.04em; }
+  .dc-verdict{
+    font-family:var(--mono); font-size:12.5px; font-weight:600; letter-spacing:0.04em;
+    background:var(--green); color:var(--paper); padding:5px 14px; border-radius:2px;
+  }
+  .dc-body{ padding:26px; }
+  .dc-row{ display:flex; align-items:baseline; justify-content:space-between; margin-bottom:18px; }
+  .dc-conf-label{ font-family:var(--mono); font-size:12px; color:var(--text-dark-2); }
+  .dc-conf-value{ font-family:var(--mono); font-size:22px; font-weight:600; color:var(--green-dim); }
+  .dc-evidence-label{ font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dark-3); margin-bottom:10px; }
+  .dc-evidence{ display:flex; flex-direction:column; gap:8px; margin-bottom:18px; }
+  .dc-evidence li{ font-size:14.5px; line-height:1.55; padding-left:18px; position:relative; color:var(--text-dark); }
+  .dc-evidence li::before{ content:'—'; position:absolute; left:0; color:var(--green-dim); }
+  .dc-why{ font-size:13.5px; line-height:1.6; color:var(--text-dark-2); border-top:1px solid var(--line-dark); padding-top:16px; font-style:italic; font-family:var(--serif); }
+
+  .hero-actions{ margin-top:36px; display:flex; gap:14px; flex-wrap:wrap; opacity:0; animation:fadeUp .9s ease forwards .6s; }
+  .btn{
+    font-family:var(--mono); font-size:13px; padding:13px 24px; border-radius:2px;
+    display:inline-flex; align-items:center; gap:9px; border:1px solid transparent; transition:all .2s;
+    cursor:pointer;
+  }
+  .btn-primary{ background:var(--green); color:var(--ink); font-weight:600; }
+  .btn-primary:hover{ background:#D9A64E; transform:translateY(-1px); }
+  .btn-ghost{ border-color:var(--line-strong); color:var(--paper); }
+  .btn-ghost:hover{ border-color:var(--green); color:var(--green); }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{ padding:110px 0; position:relative; }
+  .sec-head{ margin-bottom:56px; max-width:640px; }
+  .sec-num{ font-family:var(--mono); font-size:12px; color:var(--green); letter-spacing:0.06em; margin-bottom:14px; display:block; }
+  .sec-title{ font-family:var(--serif); font-size:clamp(28px,3.6vw,40px); font-weight:500; line-height:1.15; }
+  .sec-desc{ margin-top:16px; color:var(--text-dim); font-size:15.5px; line-height:1.7; max-width:520px; }
+
+  .reveal{ opacity:0; transform:translateY(20px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- 01 EXECUTIVE SUMMARY ---------- */
+  .summary{ background:var(--paper); color:var(--ink); }
+  .summary .sec-num{ color:var(--green-dim); }
+  .summary-grid{ display:grid; grid-template-columns:280px 1fr; gap:64px; }
+  .photo-block{ position:relative; }
+  .photo-frame{
+    width:100%; aspect-ratio:4/5; background:var(--ink); border:1px solid var(--line-dark); overflow:hidden;
+  }
+  .photo-frame img{ width:100%; height:100%; object-fit:cover; }
+  .photo-caption{ font-family:var(--mono); font-size:11.5px; color:var(--text-dark-2); margin-top:12px; line-height:1.6; }
+  .summary-copy p{ font-size:16.5px; line-height:1.85; color:var(--text-dark); margin-bottom:20px; max-width:600px; }
+  .summary-copy p:first-child{ font-family:var(--serif); font-size:21px; line-height:1.55; color:var(--ink); }
+  .summary-copy strong{ color:var(--ink); font-weight:600; }
+
+  .method-list{ margin-top:36px; display:flex; flex-direction:column; border-top:1px solid var(--line-dark); }
+  .method-row{ display:grid; grid-template-columns:120px 1fr; gap:22px; padding:18px 0; border-bottom:1px solid var(--line-dark); }
+  .method-key{ font-family:var(--mono); font-size:11.5px; color:var(--green-dim); letter-spacing:0.04em; padding-top:2px; }
+  .method-val{ font-size:14.5px; line-height:1.6; color:var(--text-dark); }
+  .method-val strong{ color:var(--ink); }
+
+  @media (max-width:820px){ .summary-grid{ grid-template-columns:1fr; gap:36px; } .photo-block{ max-width:220px; } }
+
+  /* ---------- 02 METHODOLOGY (skills) ---------- */
+  .method-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); }
+  .method-card{ background:var(--ink); padding:28px 26px; }
+  .method-card h3{ font-family:var(--serif); font-size:19px; font-weight:500; margin-bottom:14px; }
+  .method-card .m-note{ font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:0.06em; margin-bottom:14px; display:block; }
+  .tag-row{ display:flex; flex-wrap:wrap; gap:7px; }
+  .tag-row span{ font-family:var(--mono); font-size:11.5px; color:var(--text-dim); border:1px solid var(--line); padding:5px 10px; border-radius:2px; }
+  @media (max-width:820px){ .method-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- 03 CASE FILES ---------- */
+  .case-list{ display:flex; flex-direction:column; gap:56px; }
+  .case{
+    border:1px solid var(--line); border-radius:3px; overflow:hidden; background:var(--ink-2);
+  }
+  .case-flagship{ border-color:rgba(185,134,46,0.3); }
+  .case-head{
+    display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+    padding:22px 30px; border-bottom:1px solid var(--line); background:var(--ink-3);
+  }
+  .case-id{ font-family:var(--mono); font-size:12px; color:var(--text-dim2); letter-spacing:0.04em; }
+  .case-status{
+    font-family:var(--mono); font-size:11.5px; font-weight:600; letter-spacing:0.03em;
+    padding:5px 13px; border-radius:2px; background:rgba(185,134,46,0.14); color:var(--green);
+    border:1px solid rgba(185,134,46,0.3);
+  }
+  .case-body{ padding:34px 30px; }
+  .case-body h3{ font-family:var(--serif); font-size:26px; font-weight:500; line-height:1.25; margin-bottom:14px; max-width:680px; }
+  .case-body > p{ color:var(--text-dim); font-size:15px; line-height:1.75; max-width:680px; margin-bottom:20px; }
+  .case-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px; }
+  .case-tags span{ font-family:var(--mono); font-size:11px; color:var(--green); border:1px solid rgba(185,134,46,0.3); padding:4px 10px; border-radius:20px; }
+
+  .case-stats{ display:flex; flex-wrap:wrap; gap:36px; padding:22px 30px; border-top:1px solid var(--line); background:var(--ink-3); }
+  .case-stat{ display:flex; flex-direction:column; gap:6px; }
+  .case-stat .cs-num{ font-family:var(--serif); font-size:28px; color:var(--amber); line-height:1; }
+  .case-stat .cs-lbl{ font-family:var(--mono); font-size:11px; color:var(--text-dim); }
+
+  .case-figure{ margin:24px 0; border:1px solid var(--line); border-radius:2px; overflow:hidden; background:var(--figure-bg); }
+  .case-figure img{ width:100%; display:block; }
+  .case-figure-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:24px 0;
+  }
+  .case-figure-grid img{ width:100%; border:1px solid var(--line); border-radius:2px; }
+  @media (max-width:640px){ .case-figure-grid{ grid-template-columns:1fr; } }
+
+  .case-subhead{
+    display:block; font-family:var(--mono); font-size:11px; color:var(--amber);
+    letter-spacing:0.08em; text-transform:uppercase; margin:30px 0 14px;
+  }
+  .cap-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); }
+  .cap-grid.cap-grid-2{ grid-template-columns:1fr 1fr; }
+  .cap{ background:var(--ink-3); padding:16px 18px; }
+  .cap-label{ display:block; font-family:var(--mono); font-size:11.5px; color:var(--green); font-weight:600; margin-bottom:6px; }
+  .cap-items{ font-size:12.5px; color:var(--text-dim); line-height:1.6; }
+  @media (max-width:760px){ .cap-grid, .cap-grid.cap-grid-2{ grid-template-columns:1fr 1fr; } }
+  @media (max-width:500px){ .cap-grid, .cap-grid.cap-grid-2{ grid-template-columns:1fr; } }
+
+  .finding-list{ display:flex; flex-direction:column; gap:11px; margin-bottom:8px; }
+  .finding-list li{ font-size:14px; color:var(--on-dark); line-height:1.65; padding-left:20px; position:relative; }
+  .finding-list li::before{ content:'✓'; position:absolute; left:0; color:var(--green); font-weight:600; }
+  .finding-list li strong{ color:var(--paper); font-weight:600; }
+
+  .case-link{
+    display:inline-block; margin-top:22px; font-family:var(--mono); font-size:12.5px; color:var(--green);
+    border-bottom:1px solid rgba(185,134,46,0.35); padding-bottom:2px;
+  }
+  .case-link:hover{ border-color:var(--green); }
+
+  /* ---------- 04 TRACK RECORD ---------- */
+  .trail{ position:relative; padding-left:28px; border-left:1px solid var(--line); }
+  .trail-item{ position:relative; padding-bottom:52px; }
+  .trail-item:last-child{ padding-bottom:0; }
+  .trail-item::before{ content:''; position:absolute; left:-33px; top:6px; width:10px; height:10px; border-radius:50%; background:var(--ink); border:2px solid var(--green); }
+  .trail-period{ font-family:var(--mono); font-size:12px; color:var(--green); margin-bottom:8px; }
+  .trail-role{ font-family:var(--serif); font-size:21px; font-weight:500; margin-bottom:4px; }
+  .trail-org{ color:var(--text-dim); font-size:14px; margin-bottom:14px; }
+  .trail-points{ display:flex; flex-direction:column; gap:9px; max-width:600px; }
+  .trail-points li{ font-size:14px; color:var(--on-dark); line-height:1.6; padding-left:18px; position:relative; }
+  .trail-points li::before{ content:'—'; position:absolute; left:0; color:var(--text-dim2); }
+
+  /* ---------- 05 REFERENCE LIBRARY ---------- */
+  .ref-card{
+    background:var(--ink-2); border:1px solid var(--line); padding:34px 32px;
+    display:flex; align-items:center; justify-content:space-between; gap:28px; flex-wrap:wrap;
+  }
+  .ref-card h3{ font-family:var(--serif); font-size:21px; font-weight:500; margin:10px 0 10px; }
+  .ref-card p{ color:var(--text-dim); font-size:14px; line-height:1.65; max-width:560px; }
+  .ref-tag{ font-family:var(--mono); font-size:11px; color:var(--amber); letter-spacing:0.06em; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{ border-top:1px solid var(--line); }
+  .contact .sec-head{ max-width:100%; }
+  .contact-title{ font-family:var(--serif); font-size:clamp(30px,4.5vw,48px); font-weight:500; line-height:1.2; max-width:720px; margin-bottom:44px; }
+  .contact-title em{ font-style:italic; color:var(--green); }
+  .contact-grid{ display:flex; flex-wrap:wrap; gap:14px; }
+  .contact-link{
+    font-family:var(--mono); font-size:13.5px; border:1px solid var(--line); padding:15px 24px;
+    display:flex; align-items:center; gap:9px; transition:all .2s;
+  }
+  .contact-link .lbl{ color:var(--text-dim2); }
+  .contact-link:hover{ border-color:var(--green); color:var(--green); background:rgba(185,134,46,0.05); }
+  .contact-link:hover .lbl{ color:var(--green); }
+
+  footer{
+    border-top:1px solid var(--line); padding:30px 32px; display:flex; justify-content:space-between;
+    align-items:center; font-family:var(--mono); font-size:11.5px; color:var(--text-dim2); flex-wrap:wrap; gap:10px;
+  }
+
+  .biz-impact{ margin-top:40px; padding-top:34px; border-top:1px solid var(--line); }
+  .biz-question{ font-family:var(--serif); font-size:22px; font-weight:500; color:var(--paper); margin:14px 0 10px; max-width:640px; }
+  .biz-lede{ font-size:14.5px; line-height:1.75; color:var(--text-dim); max-width:680px; margin-bottom:8px; }
+
+  .flow-steps{ display:flex; flex-direction:column; margin:20px 0 32px; border-top:1px solid var(--line); }
+  .flow-step{ display:grid; grid-template-columns:70px 150px 1fr; gap:18px; padding:14px 0; border-bottom:1px solid var(--line); align-items:baseline; }
+  .flow-step .fs-num{ font-family:var(--mono); font-size:12px; color:var(--green); }
+  .flow-step .fs-name{ font-family:var(--serif); font-size:16px; font-weight:500; color:var(--paper); }
+  .flow-step .fs-desc{ font-size:13.5px; color:var(--text-dim); line-height:1.6; }
+  @media (max-width:640px){ .flow-step{ grid-template-columns:1fr; gap:4px; } }
+
+  .qa-table{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); margin:20px 0 32px; }
+  .qa-row{ display:grid; grid-template-columns:1fr 1.5fr; gap:20px; background:var(--ink-3); padding:16px 20px; }
+  .qa-row .qa-q{ font-family:var(--serif); font-style:italic; font-size:14.5px; color:var(--amber); }
+  .qa-row .qa-a{ font-size:13.5px; color:var(--text-dim); line-height:1.6; }
+  @media (max-width:640px){ .qa-row{ grid-template-columns:1fr; gap:6px; } }
+
+  .lever-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line); margin:20px 0 32px; }
+  .lever{ background:var(--ink-3); padding:18px 20px; }
+  .lever h4{ font-family:var(--sans); font-size:13.5px; font-weight:600; color:var(--paper); margin-bottom:6px; }
+  .lever p{ font-size:12.5px; color:var(--text-dim); line-height:1.6; }
+  .lever .measure{ display:block; margin-top:8px; font-family:var(--mono); font-size:11px; color:var(--green); }
+  @media (max-width:640px){ .lever-grid{ grid-template-columns:1fr; } }
+
+  .kpi-row{ display:flex; flex-wrap:wrap; gap:10px; margin:20px 0 30px; }
+  .kpi-chip{ font-family:var(--mono); font-size:11.5px; color:var(--paper); border:1px solid var(--line-strong); padding:8px 14px; border-radius:20px; }
+
+  .biz-close{ font-size:14.5px; line-height:1.8; color:var(--text-dim); max-width:700px; margin-top:6px; }
+  .biz-close strong{ color:var(--paper); }
+
+  /* ---------- EXHIBIT A: BUSINESS & SALES IMPACT ---------- */
+  .exhibit{ background:var(--ink-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+  .exhibit-tag{ font-family:var(--mono); font-size:11.5px; color:var(--amber); letter-spacing:0.06em; display:block; margin-bottom:14px; }
+  .exhibit .sec-title{ max-width:760px; }
+  .exhibit .sec-desc{ max-width:600px; }
+
+  .exhibit-question{ font-family:var(--serif); font-style:italic; font-weight:500; font-size:clamp(20px,2.6vw,28px); color:var(--paper); max-width:760px; margin:40px 0 30px; line-height:1.4; }
+
+  .pipeline-strip{ display:flex; flex-wrap:wrap; border:1px solid var(--line); margin:0 0 32px; }
+  .ps-stage{ flex:1 1 160px; padding:20px 24px; border-right:1px solid var(--line); }
+  .ps-stage:last-child{ border-right:none; }
+  .ps-label{ display:block; font-family:var(--sans); font-size:14px; font-weight:600; color:var(--paper); margin-bottom:8px; }
+  .ps-items{ font-family:var(--mono); font-size:11.5px; color:var(--text-dim); line-height:1.6; }
+  @media (max-width:640px){ .pipeline-strip{ flex-direction:column; } .ps-stage{ border-right:none; border-bottom:1px solid var(--line); } .ps-stage:last-child{ border-bottom:none; } }
+
+  .exhibit-lede{ font-size:15.5px; line-height:1.8; color:var(--text-dim); max-width:740px; margin-bottom:38px; }
+  .exhibit-lede strong{ color:var(--paper); }
+
+  .exhibit-note{ font-size:13px; color:var(--text-dim2); max-width:700px; margin:16px 0 44px; font-style:italic; font-family:var(--serif); }
+
+  .func-table{ display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); margin:20px 0 44px; }
+  .func-row{ display:grid; grid-template-columns:170px 1fr 1fr; gap:18px; background:var(--ink-3); padding:16px 20px; }
+  .func-row.head{ background:var(--ink); }
+  .func-row.head span{ font-family:var(--mono); font-size:10.5px; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-dim2); }
+  .func-row .fn{ font-family:var(--sans); font-size:13px; font-weight:600; color:var(--paper); }
+  .func-row .fc, .func-row .fd{ font-size:12.5px; color:var(--text-dim); line-height:1.55; }
+  @media (max-width:700px){ .func-row{ grid-template-columns:1fr; gap:6px; } }
+
+  .frame-row .qa-q{ color:var(--red); }
+
+  .exhibit-close{ font-size:14.5px; line-height:1.85; color:var(--text-dim); max-width:760px; margin-top:12px; padding-top:32px; border-top:1px solid var(--line); }
+  .exhibit-close strong{ color:var(--paper); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark"><span class="dot"></span>N.PANDEY</div>
+  <div class="nav-links">
+    <a href="#impact">Impact Brief</a>
+    <a href="#summary">Summary</a>
+    <a href="#method">Methodology</a>
+    <a href="#cases">Case Files</a>
+    <a href="#record">Track Record</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="doc-tag">Analyst Brief · Prepared by <strong>Niteesh Kumar Pandey</strong></div>
+    <h1 class="hero-title">Business decisions shouldn't run on a hunch. I build the evidence underneath them.</h1>
+    <p class="hero-sub">Business &amp; Strategic Analyst working across SQL, Python, Power BI, and applied AI — from MIS dashboards to full decision-intelligence platforms that tell a business what to do next, and why.</p>
+
+    <div class="decision-card">
+      <div class="dc-head">
+        <span class="dc-subject">SUBJECT: ESTATEIQ — REAL ESTATE DECISION PLATFORM</span>
+        <span class="dc-verdict">INVEST</span>
+      </div>
+      <div class="dc-body">
+        <div class="dc-row">
+          <span class="dc-conf-label">Business Confidence</span>
+          <span class="dc-conf-value">92%</span>
+        </div>
+        <span class="dc-evidence-label">Business Impact</span>
+        <ul class="dc-evidence">
+          <li>Filters weak opportunities out of the funnel early, before a sales team sinks hours into them</li>
+          <li>Hands every sales conversation evidence — comparables, ROI/IRR, risk — instead of a gut-feel pitch</li>
+          <li>Surfaces downside through Monte Carlo before capital is committed, not after</li>
+        </ul>
+        <p class="dc-why">Why: it doesn't promise profit — it hands a real-estate business measurable levers: opportunity quality, analyst hours saved, conversion rate, capital discipline.</p>
+      </div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#impact" class="btn btn-primary">Read the Impact Brief →</a>
+      <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+</header>
+
+<!-- EXHIBIT A: ESTATEIQ BUSINESS & SALES IMPACT -->
+<section class="exhibit" id="impact">
+  <div class="wrap">
+    <div class="exhibit-head sec-head reveal">
+      <span class="exhibit-tag">Exhibit A — Attached Brief, EstateIQ</span>
+      <h2 class="sec-title">The full business case, not just the build.</h2>
+      <p class="sec-desc">A brief prepared alongside the project — how EstateIQ earns its place inside a real-estate company, not just on a portfolio page.</p>
+    </div>
+
+    <p class="exhibit-question reveal">"Which property, locality or opportunity deserves attention — and why?"</p>
+
+    <div class="pipeline-strip reveal">
+      <div class="ps-stage"><span class="ps-label">Understand</span><span class="ps-items">Market · Property · Customer · Location</span></div>
+      <div class="ps-stage"><span class="ps-label">Evaluate</span><span class="ps-items">Financial · Risk · Evidence · Prediction</span></div>
+      <div class="ps-stage"><span class="ps-label">Act</span><span class="ps-items">Prioritize · Sell · Invest · Decide</span></div>
+    </div>
+
+    <p class="exhibit-lede reveal">EstateIQ turns fragmented real-estate data into one structured view of opportunity, economics, evidence, risk and recommended action — a shared intelligence layer sales, managers, risk teams and leadership can all work from. It answers one practical question: <strong>invest, hold or avoid — and on what evidence?</strong> Better targeting, faster analysis, stronger conversations and clearer downside visibility create measurable value. The platform doesn't guarantee profit; it creates levers a company can measure and improve.</p>
+
+    <span class="case-subhead">What it delivers for a real-estate company</span>
+    <div class="cap-grid reveal">
+      <div class="cap"><span class="cap-label">Opportunity Discovery</span><span class="cap-items">Attractive properties &amp; localities from growth, demand, supply, liquidity and performance signals</span></div>
+      <div class="cap"><span class="cap-label">Investment Evaluation</span><span class="cap-items">ROI, IRR, NPV, cap rate, NOI, cash flow and DSCR with transparent assumptions</span></div>
+      <div class="cap"><span class="cap-label">Market Prioritization</span><span class="cap-items">Compares localities and segments so management attention goes to the highest-value work</span></div>
+      <div class="cap"><span class="cap-label">Risk Visibility</span><span class="cap-items">Scenarios, sensitivity analysis and Monte Carlo output instead of single-point optimism</span></div>
+      <div class="cap"><span class="cap-label">Evidence-Backed Decisions</span><span class="cap-items">Every important claim connects to retrieved, validated evidence — no silent guessing</span></div>
+      <div class="cap"><span class="cap-label">Management Visibility</span><span class="cap-items">One coherent view of opportunities, economics, risk and recommended action</span></div>
+    </div>
+    <p class="exhibit-note reveal">One platform, four users: sales gets opportunity intelligence, managers get prioritization and performance visibility, investment &amp; risk teams get financial and downside analysis, leadership gets one concise decision view.</p>
+
+    <span class="case-subhead">Where it sits in the sales funnel</span>
+    <div class="pipeline-strip reveal">
+      <div class="ps-stage"><span class="ps-label">Aware</span><span class="ps-items">Market &amp; locality signals surface the right opportunities</span></div>
+      <div class="ps-stage"><span class="ps-label">Qualify</span><span class="ps-items">Prioritize which opportunities deserve sales attention</span></div>
+      <div class="ps-stage"><span class="ps-label">Engage</span><span class="ps-items">Evidence + financial conversation builds credibility</span></div>
+      <div class="ps-stage"><span class="ps-label">Convert</span><span class="ps-items">Clear recommendation with conditions and residual risk</span></div>
+    </div>
+    <div class="kpi-row reveal">
+      <span class="kpi-chip">Conversion rate</span>
+      <span class="kpi-chip">Sales cycle time</span>
+      <span class="kpi-chip">Opportunity quality</span>
+      <span class="kpi-chip">Proposal speed</span>
+      <span class="kpi-chip">Revenue per rep</span>
+      <span class="kpi-chip">Win / loss analysis</span>
+    </div>
+
+    <span class="case-subhead">Business functions it supports</span>
+    <div class="func-table reveal">
+      <div class="func-row head"><span>Function</span><span>EstateIQ contribution</span><span>Decision supported</span></div>
+      <div class="func-row"><span class="fn">Sales</span><span class="fc">Opportunity prioritization, property intelligence, evidence-backed conversations</span><span class="fd">Which opportunities deserve attention?</span></div>
+      <div class="func-row"><span class="fn">Sales Management</span><span class="fc">Market and opportunity comparison with performance context</span><span class="fd">Where should the team focus?</span></div>
+      <div class="func-row"><span class="fn">Investment / Acquisition</span><span class="fc">Financial returns, comparables, market and risk context</span><span class="fd">Is this worth deeper evaluation?</span></div>
+      <div class="func-row"><span class="fn">Market Research</span><span class="fc">Locality trends, demand, supply, liquidity, developer intelligence</span><span class="fd">Which market or segment looks attractive?</span></div>
+      <div class="func-row"><span class="fn">Risk</span><span class="fc">Scenario, sensitivity and Monte Carlo analysis, plus explicit limitations</span><span class="fd">How fragile is the investment case?</span></div>
+      <div class="func-row"><span class="fn">Leadership</span><span class="fc">Executive dashboards and structured decision views</span><span class="fd">What should we prioritize, approve, hold or avoid?</span></div>
+    </div>
+
+    <span class="case-subhead">Strategic impact beyond one sale</span>
+    <div class="lever-grid reveal">
+      <div class="lever"><h4>Standardize Decisions</h4><p>Creates a common analytical language across sales, management, investment and risk teams.</p></div>
+      <div class="lever"><h4>Scale Analyst Capability</h4><p>Reuses SQL, financial engines, evidence workflows and dashboards instead of starting over each time.</p></div>
+      <div class="lever"><h4>Improve Capital Discipline</h4><p>Compares upside with downside and assumptions before deeper commitment of money or attention.</p></div>
+      <div class="lever"><h4>Strengthen Sales Intelligence</h4><p>Moves conversations from generic selling points toward evidence and economics.</p></div>
+      <div class="lever"><h4>Management Visibility</h4><p>Aggregates market, opportunity, financial and risk signals into one clear decision view.</p></div>
+      <div class="lever"><h4>AI-Augmented Work</h4><p>AI orchestrates and explains, while critical calculations and decisions stay governed.</p></div>
+    </div>
+
+    <span class="case-subhead">Framed the way a business stakeholder would trust</span>
+    <div class="qa-table reveal">
+      <div class="qa-row frame-row"><span class="qa-q">"It guarantees profit."</span><span class="qa-a">It supports investment screening and decision quality — uplift is measured, not promised.</span></div>
+      <div class="qa-row frame-row"><span class="qa-q">"AI makes the decision."</span><span class="qa-a">AI orchestrates and explains; a governed, deterministic policy layer makes the call.</span></div>
+      <div class="qa-row frame-row"><span class="qa-q">"Sales will automatically increase."</span><span class="qa-a">It supports targeting and evidence-backed conversations; any uplift still has to be measured.</span></div>
+      <div class="qa-row frame-row"><span class="qa-q">"Predictions are always accurate."</span><span class="qa-a">Every model carries a validation status, metrics and stated limitations.</span></div>
+      <div class="qa-row frame-row"><span class="qa-q">"Monte Carlo predicts the future."</span><span class="qa-a">The simulation shows modeled uncertainty under stated assumptions — not a forecast.</span></div>
+    </div>
+
+    <p class="exhibit-close reveal">For a real-estate company — a developer, brokerage, investment firm or proptech — the practical value is direct: better opportunity focus, stronger sales conversations, earlier risk visibility and one consistent decision language across teams. <strong>Best-fit uses:</strong> opportunity screening, market prioritization, investment analysis, risk assessment, sales intelligence, management dashboards and AI-assisted decision explanation. The clearest way to see the value is to walk one property through the whole journey — raw input → analysis → financial &amp; risk view → final decision → plain-language explanation. The case files below do exactly that.</p>
+  </div>
+</section>
+
+<!-- 01 EXECUTIVE SUMMARY -->
+<section class="summary" id="summary">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">01 — Executive Summary</span>
+      <h2 class="sec-title">The judgment behind the dashboards.</h2>
+    </div>
+    <div class="summary-grid">
+      <div class="photo-block reveal">
+        <div class="photo-frame">
+          <img src="niteesh-photo.jpg" alt="Niteesh Kumar Pandey">
+        </div>
+        <div class="photo-caption">Currently pursuing MBA — Business Analytics &amp; Data Science, Manipal University Jaipur</div>
+      </div>
+      <div class="summary-copy reveal">
+        <p>I don't treat data as a report to file — I treat it as the raw material for a decision someone still has to make.</p>
+        <p>My background sits at the intersection of <strong>business strategy and applied analytics</strong>. I've moved between inventory floors and dashboards — automating MIS reporting for a 5,000+ SKU pharmaceutical business — and, more recently, into building AI systems that don't just visualize data but reason over it and recommend an action.</p>
+        <p>What ties it together is a habit: before I build a chart or a model, I ask what decision it's supposed to change. If a dashboard doesn't shift someone's next action, it's decoration, not analysis.</p>
+
+        <div class="method-list">
+          <div class="method-row">
+            <span class="method-key">DECIDE</span>
+            <span class="method-val">Start every analysis by naming the decision it needs to inform — <strong>not the metric, the decision.</strong> Metrics follow.</span>
+          </div>
+          <div class="method-row">
+            <span class="method-key">VALIDATE</span>
+            <span class="method-val">Numbers get cross-checked before they get trusted. <strong>A wrong dashboard is worse than no dashboard.</strong></span>
+          </div>
+          <div class="method-row">
+            <span class="method-key">GOVERN</span>
+            <span class="method-val">AI-generated answers get gated — evidence checks, confidence scores, explicit limitations. <strong>Never present a guess as a fact.</strong></span>
+          </div>
+          <div class="method-row">
+            <span class="method-key">SIMPLIFY</span>
+            <span class="method-val">Complex models are easy. <strong>Explaining them to a stakeholder in one sentence is the actual skill.</strong></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 METHODOLOGY -->
+<section id="method">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">02 — Methodology</span>
+      <h2 class="sec-title">The instruments, not just the outputs.</h2>
+      <p class="sec-desc">The specific tools and techniques behind every case file that follows.</p>
+    </div>
+  </div>
+  <div class="method-grid reveal">
+    <div class="method-card">
+      <span class="m-note">DATA &amp; AI SYSTEMS</span>
+      <h3>Decision Intelligence</h3>
+      <div class="tag-row">
+        <span>Multi-agent orchestration</span><span>RAG</span><span>Gemini API</span>
+        <span>Monte Carlo simulation</span><span>ML (Random Forest)</span>
+      </div>
+    </div>
+    <div class="method-card">
+      <span class="m-note">DATABASES &amp; CODE</span>
+      <h3>Analytics Engineering</h3>
+      <div class="tag-row">
+        <span>SQL / PostgreSQL</span><span>CTEs</span><span>Window Functions</span>
+        <span>Python</span><span>Pandas / NumPy</span>
+      </div>
+    </div>
+    <div class="method-card">
+      <span class="m-note">BI &amp; REPORTING</span>
+      <h3>Dashboards</h3>
+      <div class="tag-row">
+        <span>Power BI</span><span>DAX</span><span>Power Query</span>
+        <span>Advanced Excel</span><span>XLOOKUP</span>
+      </div>
+    </div>
+    <div class="method-card">
+      <span class="m-note">GROWTH &amp; PRODUCT</span>
+      <h3>Product Analytics</h3>
+      <div class="tag-row">
+        <span>Funnel analysis</span><span>Cohort analysis</span><span>A/B testing</span>
+        <span>Retention &amp; churn</span><span>RFM segmentation</span>
+      </div>
+    </div>
+    <div class="method-card">
+      <span class="m-note">METRICS FRAMEWORKS</span>
+      <h3>Business Economics</h3>
+      <div class="tag-row">
+        <span>LTV / CAC</span><span>DAU / MAU</span><span>ARPU</span>
+        <span>NPV / IRR</span><span>VaR / CVaR</span>
+      </div>
+    </div>
+    <div class="method-card">
+      <span class="m-note">CREDENTIALS</span>
+      <h3>Certifications</h3>
+      <div class="tag-row">
+        <span>PL-300 Power BI</span><span>Google Data Analytics</span>
+        <span>IIM Ahmedabad — AI in Business</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 CASE FILES -->
+<section id="cases">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">03 — Case Files</span>
+      <h2 class="sec-title">Six builds, each with a verifiable outcome.</h2>
+      <p class="sec-desc">Every case started as a messy dataset and ended as something a business could act on.</p>
+    </div>
+
+    <div class="case-list">
+
+      <!-- CASE 01: ESTATEIQ -->
+      <div class="case case-flagship reveal">
+        <div class="case-head">
+          <span class="case-id">CASE FILE 01 · REAL ESTATE</span>
+          <span class="case-status">SHIPPED</span>
+        </div>
+        <div class="case-body">
+          <h3>EstateIQ — AI-Powered Real Estate Decision Intelligence Platform</h3>
+          <p>A 10-phase intelligence pipeline that takes raw property, market, and location data all the way to a governed investment decision — INVEST, HOLD, or AVOID — with 11 orchestrated AI agents, Monte Carlo risk simulation, and every recommendation explained and evidence-cited, never just guessed.</p>
+          <div class="case-tags"><span>PostgreSQL</span><span>Python</span><span>Monte Carlo</span><span>RAG</span><span>Multi-Agent AI</span><span>Power BI</span><span>Gemini API</span></div>
+
+          <div class="case-figure">
+            <img src="estateiq-architecture.jpg" alt="EstateIQ 10-phase intelligence pipeline architecture — from data sources to AI explanation">
+          </div>
+
+          <span class="case-subhead">The 10-phase intelligence pipeline</span>
+          <div class="cap-grid">
+            <div class="cap"><span class="cap-label">1 · Data Foundation</span><span class="cap-items">Ingestion, cleaning, dedupe, outlier detection — a trusted data layer</span></div>
+            <div class="cap"><span class="cap-label">2 · SQL Business Intelligence</span><span class="cap-items">Market trends, locality growth, YoY/MoM, developer performance</span></div>
+            <div class="cap"><span class="cap-label">3 · Statistics &amp; Analytics</span><span class="cap-items">Descriptive stats, correlation, segmentation, hypothesis testing</span></div>
+            <div class="cap"><span class="cap-label">4 · Predictive Analytics</span><span class="cap-items">Price forecasting, demand forecasting, sale probability</span></div>
+            <div class="cap"><span class="cap-label">5 · Evidence Intelligence (RAG)</span><span class="cap-items">Document retrieval, hybrid search, citation validation</span></div>
+            <div class="cap"><span class="cap-label">6 · Financial Intelligence</span><span class="cap-items">ROI, IRR, NPV, cap rate, DSCR, cash flow &amp; payback</span></div>
+            <div class="cap"><span class="cap-label">7 · Risk &amp; Monte Carlo</span><span class="cap-items">Simulation, downside probability, VaR/CVaR</span></div>
+            <div class="cap"><span class="cap-label">8 · Geo-Spatial Intelligence</span><span class="cap-items">Location scoring, accessibility, neighborhood quality</span></div>
+            <div class="cap"><span class="cap-label">9 · Multi-Agent Orchestration</span><span class="cap-items">11 agents — query, market, prediction, finance, risk, geo, decision, explanation</span></div>
+          </div>
+
+          <span class="case-subhead">Dashboards (6 Power BI views)</span>
+          <div class="case-figure-grid">
+            <img src="estateiq-dash1.png" alt="EstateIQ Executive Overview dashboard">
+            <img src="estateiq-dash2.png" alt="EstateIQ Market and Locality Intelligence dashboard">
+            <img src="estateiq-dash3.png" alt="EstateIQ Property and Investment dashboard">
+            <img src="estateiq-dash4.png" alt="EstateIQ Financial and Risk Intelligence dashboard">
+            <img src="estateiq-dash5.png" alt="EstateIQ Geo Intelligence dashboard">
+            <img src="estateiq-dash6.png" alt="EstateIQ Decision Intelligence dashboard">
+          </div>
+
+          <span class="case-subhead">The AI layer in action — real CLI output</span>
+          <div class="case-figure">
+            <img src="estateiq-ai-chat.png" alt="EstateIQ AI chat — top 3 properties ranked by decision score with IRR and NPV">
+          </div>
+          <ul class="finding-list">
+            <li><strong>Every decision is governed, not guessed</strong> — a deterministic decision engine sits on top of the AI, with pass/fail gates before any INVEST/HOLD/AVOID label is issued.</li>
+            <li><strong>Confidence is explicit</strong> — every recommendation ships with a decision score, a confidence percentage, and the top reasons behind it.</li>
+            <li><strong>Limitations are surfaced, not hidden</strong> — Monte Carlo output is labelled "uncalibrated," and missing data is flagged as insufficient, never silently defaulted.</li>
+          </ul>
+
+          <div class="biz-impact">
+            <span class="case-subhead">Business &amp; sales impact — why a real-estate company would actually adopt this</span>
+            <p class="biz-question">"Which property, locality or opportunity deserves attention — and why?"</p>
+            <p class="biz-lede">That's the one question the platform is built to answer. It doesn't promise profit — it gives a business levers it can measure and improve: sharper targeting, faster analysis, stronger sales conversations, and downside that's visible instead of assumed away.</p>
+
+            <span class="case-subhead">Six-step sales enablement flow</span>
+            <div class="flow-steps">
+              <div class="flow-step"><span class="fs-num">01</span><span class="fs-name">Find</span><span class="fs-desc">Surface priority properties and localities from market and performance signals, before a rep spends time on them.</span></div>
+              <div class="flow-step"><span class="fs-num">02</span><span class="fs-name">Qualify</span><span class="fs-desc">Score opportunity quality on price, property, locality and investment context — not gut feel.</span></div>
+              <div class="flow-step"><span class="fs-num">03</span><span class="fs-name">Personalize</span><span class="fs-desc">Frame the pitch around what the buyer actually wants — end-use, rental yield or capital growth.</span></div>
+              <div class="flow-step"><span class="fs-num">04</span><span class="fs-name">Prove</span><span class="fs-desc">Back every claim with comparables, financial analysis and stated assumptions, on request.</span></div>
+              <div class="flow-step"><span class="fs-num">05</span><span class="fs-name">Handle objections</span><span class="fs-desc">Answer price, locality, return and risk questions with data instead of reassurance.</span></div>
+              <div class="flow-step"><span class="fs-num">06</span><span class="fs-name">Recommend</span><span class="fs-desc">Present the option with its conditions, limitations and residual risk attached — not hidden.</span></div>
+            </div>
+
+            <span class="case-subhead">What a rep can say when a customer pushes back</span>
+            <div class="qa-table">
+              <div class="qa-row"><span class="qa-q">"Why this locality?"</span><span class="qa-a">Growth, demand, supply, liquidity and location indicators, pulled from the data rather than asserted.</span></div>
+              <div class="qa-row"><span class="qa-q">"Is this price justified?"</span><span class="qa-a">Property benchmarks, comparables and the platform's valuation and predictive signals.</span></div>
+              <div class="qa-row"><span class="qa-q">"What return can I expect?"</span><span class="qa-a">ROI, IRR, NPV and yield, shown together with the assumptions the case rests on.</span></div>
+              <div class="qa-row"><span class="qa-q">"What if the market slows?"</span><span class="qa-a">Downside scenarios and Monte Carlo output, not just the optimistic base case.</span></div>
+              <div class="qa-row"><span class="qa-q">"Why should I trust this?"</span><span class="qa-a">Evidence, source context and explicit limitations behind the recommendation, not a black box.</span></div>
+            </div>
+
+            <span class="case-subhead">The business levers it pulls — and what a company can measure</span>
+            <div class="lever-grid">
+              <div class="lever"><h4>Opportunity prioritization</h4><p>Ranks properties and localities on market, financial and risk signals together.</p><span class="measure">Measures: quality of what enters the funnel</span></div>
+              <div class="lever"><h4>Faster analysis</h4><p>Reusable SQL, financial and evidence workflows replace one-off manual digging.</p><span class="measure">Measures: analyst hours &amp; turnaround time</span></div>
+              <div class="lever"><h4>Sales productivity</h4><p>Every conversation gets market, financial and evidence-backed talking points on demand.</p><span class="measure">Measures: conversion rate, revenue per rep</span></div>
+              <div class="lever"><h4>Investment screening</h4><p>Surfaces returns, assumptions and downside early, before heavy effort is sunk in.</p><span class="measure">Measures: weak deals filtered pre-close</span></div>
+              <div class="lever"><h4>Capital allocation</h4><p>Compares opportunities on one consistent economics and risk view.</p><span class="measure">Measures: management attention &amp; capital focus</span></div>
+              <div class="lever"><h4>Decision consistency</h4><p>Shared KPIs and evidence standards across sales, risk and leadership.</p><span class="measure">Measures: variance between teams &amp; analysts</span></div>
+            </div>
+
+            <span class="case-subhead">KPIs a company would track after rollout</span>
+            <div class="kpi-row">
+              <span class="kpi-chip">Conversion rate</span>
+              <span class="kpi-chip">Sales cycle time</span>
+              <span class="kpi-chip">Opportunity quality</span>
+              <span class="kpi-chip">Proposal speed</span>
+              <span class="kpi-chip">Revenue per rep</span>
+              <span class="kpi-chip">Win / loss analysis</span>
+            </div>
+
+            <p class="biz-close">Framed deliberately in business terms, not hype: <strong>it supports investment screening and decision quality</strong> — it doesn't guarantee profit. AI orchestrates and explains; a governed, deterministic policy layer still makes the INVEST / HOLD / AVOID call. That distinction is the difference between a demo and something a real-estate business — a developer, brokerage or investment firm — could actually stand behind in front of a customer.</p>
+          </div>
+
+          <a class="case-link" href="https://github.com/Niteesh-Pandey/EstateIQ-AI-Powered-Real-Estate-Decision-Intelligence-Platform" target="_blank" rel="noopener">View Repository →</a>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><span class="cs-num">11</span><span class="cs-lbl">Orchestrated AI agents</span></div>
+          <div class="case-stat"><span class="cs-num">8K</span><span class="cs-lbl">Properties, 90 localities scored</span></div>
+          <div class="case-stat"><span class="cs-num">99%</span><span class="cs-lbl">Decision gate pass rate</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 02: ECOMIQ -->
+      <div class="case case-flagship reveal">
+        <div class="case-head">
+          <span class="case-id">CASE FILE 02 · E-COMMERCE</span>
+          <span class="case-status">SHIPPED</span>
+        </div>
+        <div class="case-body">
+          <h3>EcomIQ — AI-Powered E-Commerce Decision Intelligence Platform</h3>
+          <p>A full decision-intelligence pipeline on 9 raw source tables: SQL + Python analytics feed a verified-context layer, which grounds a Gemini-powered reasoning engine that answers business questions with evidence, root cause, and a recommended next action — not just a chart.</p>
+          <div class="case-tags"><span>PostgreSQL</span><span>Python</span><span>ML</span><span>A/B Testing</span><span>Power BI</span><span>Gemini API</span></div>
+
+          <div class="case-figure">
+            <img src="ecomiq-architecture.jpg" alt="EcomIQ end-to-end architecture — data sources through AI intelligence layer to business decisions">
+          </div>
+
+          <span class="case-subhead">What the analytics engine covers</span>
+          <div class="cap-grid cap-grid-2">
+            <div class="cap"><span class="cap-label">Product &amp; Growth</span><span class="cap-items">Funnel analysis · Cohort retention · Churn prediction · Feature adoption</span></div>
+            <div class="cap"><span class="cap-label">Unit Economics</span><span class="cap-items">CAC · CLV · CLV:CAC ratio · ARPU · Revenue churn</span></div>
+            <div class="cap"><span class="cap-label">Engagement Metrics</span><span class="cap-items">DAU / MAU · Activation rate · Conversion rate · Retention</span></div>
+            <div class="cap"><span class="cap-label">Segmentation</span><span class="cap-items">RFM — Champions / At-Risk / Hibernating cohorts</span></div>
+            <div class="cap"><span class="cap-label">Predictive &amp; Causal</span><span class="cap-items">Random Forest churn (ROC-AUC) · forecasting · A/B testing</span></div>
+            <div class="cap"><span class="cap-label">Monitoring</span><span class="cap-items">Rolling z-score anomaly detection on revenue &amp; refunds</span></div>
+          </div>
+
+          <span class="case-subhead">Business recommendations the AI layer surfaced</span>
+          <ul class="finding-list">
+            <li><strong>Ship the checkout redesign</strong> — statistically significant (p = 0.0024) and business-significant (+2.28pp uplift, 95% CI entirely positive).</li>
+            <li><strong>Prioritize 407 high-value, high-churn-risk customers</strong> for retention outreach before their 90-day churn window closes.</li>
+            <li><strong>Treat the 90-day revenue forecast as a floor</strong> — growth is accelerating past what the linear model predicts.</li>
+            <li><strong>Protect Champions + Loyal Customers</strong> — 43% of customers, 67% of revenue.</li>
+          </ul>
+
+          <a class="case-link" href="https://github.com/Niteesh-Pandey/EcomIQ-AI-Powered-E-commerce-Decision-Intelligence-Platform" target="_blank" rel="noopener">View Repository →</a>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><span class="cs-num">0.70</span><span class="cs-lbl">Churn model ROC-AUC</span></div>
+          <div class="case-stat"><span class="cs-num">+2.28pp</span><span class="cs-lbl">A/B checkout uplift, p=0.0024</span></div>
+          <div class="case-stat"><span class="cs-num">67%</span><span class="cs-lbl">Revenue from top 2 RFM segments</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 03: SAAS GROWTH -->
+      <div class="case case-flagship reveal">
+        <div class="case-head">
+          <span class="case-id">CASE FILE 03 · SAAS GROWTH</span>
+          <span class="case-status">SHIPPED</span>
+        </div>
+        <div class="case-body">
+          <h3>SaaS Growth Intelligence — From Activation to Profitability</h3>
+          <p>Full-funnel diagnosis of a SaaS product: mapped the onboarding funnel to find the real bottleneck, ran a statistically validated A/B test on the fix, then re-scored every acquisition channel by LTV:CAC instead of signup volume — turning "which channel gets the most users" into "which channel is actually profitable."</p>
+          <div class="case-tags"><span>SQL</span><span>Python</span><span>Statistical Testing</span><span>Cohort Analysis</span><span>Unit Economics</span></div>
+          <div class="case-figure-grid">
+            <img src="saas-funnel.png" alt="User conversion funnel from signup to paid">
+            <img src="saas-cohort.png" alt="User retention cohort analysis heatmap">
+            <img src="saas-metrics.png" alt="ARPU, churn rate, paying customers, and A/B test activation results">
+            <img src="saas-subscription.png" alt="Subscription distribution by plan">
+          </div>
+          <a class="case-link" href="https://github.com/Niteesh-Pandey/SaaS-Growth-Intelligence---From-Activation-to-Profitability" target="_blank" rel="noopener">View Repository →</a>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><span class="cs-num">34.2%</span><span class="cs-lbl">Signup → activation rate</span></div>
+          <div class="case-stat"><span class="cs-num">+52.7%</span><span class="cs-lbl">A/B lift, p &lt; 0.0001</span></div>
+          <div class="case-stat"><span class="cs-num">3.72</span><span class="cs-lbl">Best-channel LTV:CAC (Email)</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 04: CHURN -->
+      <div class="case reveal">
+        <div class="case-head">
+          <span class="case-id">CASE FILE 04 · SUBSCRIPTION</span>
+          <span class="case-status">SHIPPED</span>
+        </div>
+        <div class="case-body">
+          <h3>Customer Churn &amp; Revenue Retention Analysis</h3>
+          <p>Integrated 3 datasets (customer, subscription, support) using SQL and Python to build a business-ready analytical dataset, then analyzed churn against key KPIs — plan type, escalations, and CLV — to surface concrete retention opportunities.</p>
+          <div class="case-tags"><span>Python</span><span>SQL (PostgreSQL)</span><span>EDA</span><span>Business Report</span></div>
+          <div class="case-figure-grid">
+            <img src="churn-plan-type.png" alt="Distribution of customers by plan type">
+            <img src="churn-contract-type.png" alt="Distribution of customers by contract type">
+          </div>
+          <a class="case-link" href="https://github.com/Niteesh-Pandey/Customer-Churn-Analysis-Retention-Strategy" target="_blank" rel="noopener">View Repository →</a>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><span class="cs-num">18.4%</span><span class="cs-lbl">Churn rate</span></div>
+          <div class="case-stat"><span class="cs-num">₹8.7M</span><span class="cs-lbl">Est. CLV loss</span></div>
+          <div class="case-stat"><span class="cs-num">24%</span><span class="cs-lbl">High churn-risk segment</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 05: OLA -->
+      <div class="case reveal">
+        <div class="case-head">
+          <span class="case-id">CASE FILE 05 · MOBILITY</span>
+          <span class="case-status">SHIPPED</span>
+        </div>
+        <div class="case-body">
+          <h3>OLA Ride Booking Analytics — Bengaluru</h3>
+          <p>Structured and queried one month of ride-booking data (103K bookings, 7 vehicle categories) in SQL — 10 views covering cancellations, ratings, and revenue — then built a 5-page Power BI dashboard for operations, revenue, and cancellation analysis.</p>
+          <div class="case-tags"><span>SQL</span><span>Power BI</span><span>Data Modeling</span></div>
+          <div class="case-figure">
+            <img src="ola-dashboard.png" alt="OLA Power BI dashboard — overall performance">
+          </div>
+          <a class="case-link" href="https://github.com/Niteesh-Pandey/-OLA-Ride-Booking-Analytics-SQL-Power-BI-Project" target="_blank" rel="noopener">View Repository →</a>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><span class="cs-num">103K</span><span class="cs-lbl">Bookings analyzed</span></div>
+          <div class="case-stat"><span class="cs-num">62.1%</span><span class="cs-lbl">Success rate</span></div>
+          <div class="case-stat"><span class="cs-num">₹35M</span><span class="cs-lbl">Total booking value</span></div>
+        </div>
+      </div>
+
+      <!-- CASE 06: BLINKIT -->
+      <div class="case reveal">
+        <div class="case-head">
+          <span class="case-id">CASE FILE 06 · RETAIL OPS</span>
+          <span class="case-status">SHIPPED</span>
+        </div>
+        <div class="case-body">
+          <h3>Blinkit Sales &amp; Operations Analysis</h3>
+          <p>Designed an interactive Excel dashboard over 8,500+ rows of grocery data, with custom KPI cards and slicers for real-time sales and outlet performance tracking.</p>
+          <div class="case-tags"><span>Advanced Excel</span><span>KPI Design</span></div>
+          <div class="case-figure">
+            <img src="blinkit-dashboard.png" alt="Blinkit Excel dashboard — sales, outlet size, and item type breakdown">
+          </div>
+        </div>
+        <div class="case-stats">
+          <div class="case-stat"><span class="cs-num">8.5k+</span><span class="cs-lbl">Rows visualized</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center; margin-top:48px;" class="reveal">
+      <a href="https://github.com/Niteesh-Pandey" target="_blank" rel="noopener" class="btn btn-ghost">See Full Portfolio on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TRACK RECORD -->
+<section id="record">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">04 — Track Record</span>
+      <h2 class="sec-title">Where the work happened.</h2>
+    </div>
+    <div class="trail reveal">
+      <div class="trail-item">
+        <div class="trail-period">FEB 2026 — JUL 2026</div>
+        <div class="trail-role">Data Analyst &amp; AI Intern</div>
+        <div class="trail-org">Codec Technologies Pvt. Ltd</div>
+        <ul class="trail-points">
+          <li>Built Power BI dashboards using SQL and Python to standardize KPI monitoring, reducing manual reporting effort by 30%</li>
+          <li>Applied Generative AI and prompt engineering to clean, structure, and validate business datasets — cutting data prep effort by 35% while improving accuracy</li>
+          <li>Used AI-assisted predictive analysis to interpret data patterns and generate forecasts, accelerating business decision-making</li>
+        </ul>
+      </div>
+      <div class="trail-item">
+        <div class="trail-period">MAY 2023 — JUN 2025</div>
+        <div class="trail-role">MIS Executive — Inventory &amp; Sales (Part-Time)</div>
+        <div class="trail-org">Shiva Pharmaceutical Wholesale Business</div>
+        <ul class="trail-points">
+          <li>Automated MIS dashboards for a 5,000+ SKU inventory dataset using Advanced Excel, reducing reporting time by 40%</li>
+          <li>Engineered improved inventory forecasting models, cutting dead stock by 15–20%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 REFERENCE LIBRARY -->
+<section id="resources">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-num">05 — Reference Library</span>
+      <h2 class="sec-title">A working formula sheet, not just results.</h2>
+    </div>
+    <div class="ref-card reveal">
+      <div>
+        <span class="ref-tag">PDF REFERENCE</span>
+        <h3>Funnel · Cohort · Churn — Formulas &amp; Code</h3>
+        <p>Conversion &amp; drop-off formulas, cohort retention grids, churn/CAC/CLV math, plus ready-to-use SQL and Python implementations — including a churn prediction model.</p>
+      </div>
+      <a class="btn btn-primary" href="Funnel_Cohort_Churn_Analysis.pdf" target="_blank" rel="noopener">Open PDF →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <span class="sec-num reveal" style="display:block;">06 — Next Steps</span>
+    <h2 class="contact-title reveal">Have a dataset that needs to become <em>a decision?</em></h2>
+    <div class="contact-grid reveal">
+      <a class="contact-link" href="mailto:Niteeshpandey9555@gmail.com"><span class="lbl">Email</span> Niteeshpandey9555@gmail.com</a>
+      <a class="contact-link" href="tel:+919555218594"><span class="lbl">Phone</span> +91 95552 18594</a>
+      <a class="contact-link" href="https://linkedin.com/in/niteeshpandey9555" target="_blank" rel="noopener"><span class="lbl">LinkedIn</span> /niteeshpandey9555</a>
+      <a class="contact-link" href="https://github.com/Niteesh-Pandey" target="_blank" rel="noopener"><span class="lbl">GitHub</span> /Niteesh-Pandey</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Niteesh Kumar Pandey</span>
+  <span>Business &amp; Strategic Analyst — Evidence before recommendation.</span>
+</footer>
+
+<script>
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.01 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
